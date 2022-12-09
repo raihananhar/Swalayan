@@ -3,7 +3,7 @@
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Navbar brand -->
-    <a class="navbar-brand" href="#">Uniplix</a>
+    <a class="navbar-brand" href="#">Barbatos</a>
 
     <!-- Toggle button -->
     <button
