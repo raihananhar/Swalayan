@@ -19,6 +19,8 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('backend/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('backend/vendor/bootstrap-fileinput/css/fileinput.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/vendor/summernote/summernote-bs4.min.css') }}">
 
 </head>
 
@@ -53,17 +55,20 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">John Doe</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Barbatos</span>
                                 <img class="img-profile rounded-circle"
                                     src="{{ asset('backend/img/undraw_profile.svg') }}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="post">
+                                    @csrf
+                                </form>
                             </div>
                         </li>
 
@@ -73,6 +78,15 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
+                @if(session()->has('message'))
+                    <div class="alert alert-{{ session()->get('alert-type') }} alert-dismissible fade show" role="alert" id="alert-message">
+                        {{ session()->get('message') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+                
                 @yield('content')
                 <!-- /.container-fluid -->
 
@@ -83,7 +97,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Sb-Admin</span>
+                        <span>Barbatos &copy; 2022</span>
                     </div>
                 </div>
             </footer>
@@ -136,9 +150,19 @@
     <!-- Page level plugins -->
     <script src="{{ asset('backend/vendor/chart.js/Chart.min.js') }}"></script>
 
+    <!-- file input -->
+      <!-- file input -->
+    <script src="{{ asset('backend/vendor/bootstrap-fileinput/js/plugins/piexif.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/bootstrap-fileinput/js/plugins/sortable.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/bootstrap-fileinput/js/fileinput.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/bootstrap-fileinput/themes/fas/theme.min.js') }}"></script>
+    <!-- summernote -->
+    <script src="{{ asset('backend/vendor/summernote/summernote-bs4.min.js') }}"></script>
+
     <!-- Page level custom scripts -->
     <!-- <script src="{{ asset('backend/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('backend/js/demo/chart-pie-demo.js') }}"></script> -->
+    @stack('script-alt')
 
 </body>
 
