@@ -1,8 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Models\Category;
-use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,38 +15,19 @@ use App\Models\Post;
 |
 */
 
-Route::get('/', function () {
+Route::get('', function () {
+    return view('welcome');
+});
+
+Route::group(['middleware' => 'isAdmin','prefix' => 'admin', 'as' => 'admin.'], function() {
+    Route::get('dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard.index');
+    Route::resource('permissions', \App\Http\Controllers\Admin\PermissionController::class);
+    Route::resource('roles', \App\Http\Controllers\Admin\RoleController::class);
+    Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
+});
+
+Auth::routes();
+
+Route::get('/home', function() {
     return view('home');
-});
-
-Route::get('/posts', [PostController::class, 'index']);
-Route::get('post/{post:slug}', [PostController::class, 'show']);
-Route::get('/categories', function () {
-    return view('categories', [
-        'title' => 'Post Categories',
-        'active' => 'categories',
-        'categories' => Category::all()
-    ]);
-});
-
-Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [LoginController::class, 'authenticate']);
-Route::post('/logout', [LoginController::class, 'logout']);
-
-Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
-Route::post('/register', [RegisterController::class, 'store']);
-
-Route::get('/dashboard', function() {
-    return view('dashboard.index', [
-        'posts' => Post::where('user_id', auth()->user()->id)->get()
-    ]);
-})->middleware('auth');
-
-Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
-Route::get('/dashboard/categories/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
-Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
-Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware(('admin'));
-
-Route::get('/dashboard/profile', function() {
-    return view ('dashboard.profile.index');
-});
+})->name('home');
