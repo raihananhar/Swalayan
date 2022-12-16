@@ -20,7 +20,7 @@ Route::get('', function () {
     return view('welcome');
 });
 
-Route::group(['middleware' => 'isAdmin','prefix' => 'admin', 'as' => 'admin.'], function() {
+Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard.index');
     Route::resource('permissions', \App\Http\Controllers\Admin\PermissionController::class);
     Route::resource('roles', \App\Http\Controllers\Admin\RoleController::class);
@@ -28,10 +28,11 @@ Route::group(['middleware' => 'isAdmin','prefix' => 'admin', 'as' => 'admin.'], 
 
     Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
     Route::resource('contact', \App\Http\Controllers\Admin\ContactController::class);
+    Route::resource('posts', \App\Http\Controllers\Admin\AdminPostsController::class);
 });
 
 Auth::routes();
 
-Route::get('/home', function() {
+Route::get('/home', function () {
     return view('home');
 })->name('home');
