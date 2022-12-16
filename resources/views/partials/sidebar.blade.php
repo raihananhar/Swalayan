@@ -40,8 +40,10 @@
                         <a class="collapse-item {{ request()->is('admin/categories') || request()->is('admin/categories/*') ? 'active' : '' }}" href="{{ route('admin.categories.index') }}"> <i class="fa fa-briefcase mr-2"></i> {{ __('Categories') }}</a>
 
                         {{-- Contact Admin --}}
-
                         <a class="collapse-item {{ request()->is('admin/contact') || request()->is('admin/contact/*') ? 'active' : '' }}" href="{{ route('admin.contact.index') }}"> <i class="fa fa-phone mr-2"></i> {{ __('Contact') }}</a>
+
+                        {{-- Posts Admin --}}
+                        <a class="collapse-item {{ request()->is('admin/posts') || request()->is('admin/posts/*') ? 'active' : '' }}" href="{{ route('admin.posts.index') }}"> <i class="fa fa-upload mr-2" aria-hidden="true"></i> {{ __('Posts') }}</a>
                     </div>
                     
                 </div>
