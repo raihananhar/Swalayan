@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +27,7 @@ Route::group(['middleware' => 'isAdmin','prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
 
     Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
+    Route::resource('contact', \App\Http\Controllers\Admin\ContactController::class);
 });
 
 Auth::routes();

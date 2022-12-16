@@ -38,9 +38,12 @@
                 <div id="collapseProduct" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item {{ request()->is('admin/categories') || request()->is('admin/categories/*') ? 'active' : '' }}" href="{{ route('admin.categories.index') }}"> <i class="fa fa-briefcase mr-2"></i> {{ __('Categories') }}</a>
+
+                        {{-- Contact Admin --}}
+
+                        <a class="collapse-item {{ request()->is('admin/contact') || request()->is('admin/contact/*') ? 'active' : '' }}" href="{{ route('admin.contact.index') }}"> <i class="fa fa-phone mr-2"></i> {{ __('Contact') }}</a>
                     </div>
+                    
                 </div>
             </li>
-
-
         </ul>
