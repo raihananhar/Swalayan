@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/style.css">
 
 
-    <title>Hello, world!</title>
+    <title>Barbatos</title>
   </head>
   <body>
 
