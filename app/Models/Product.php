@@ -14,7 +14,7 @@ class Product extends Model
 
     protected $guarded = ['id', 'updated_at', 'created_at'];
 
-     /**
+    /**
      * Return the sluggable configuration array for this model.
      *
      * @return array
@@ -23,32 +23,18 @@ class Product extends Model
     {
         return [
             'slug' => [
-                'source' => 'name',
-                'onUpdate' => true
+                'source' => 'name'
             ]
         ];
     }
 
-    public function getStatusAttribute(): string
+    public function category()
     {
-        return $this->attributes['status'] == 0 ? 'Inactive' : 'Active';
-    }
-
-    public function scopeActive($query)
-    {
-        return $query->whereStatus(true);
-    }
-
-    public function scopeHasQuantity($query)
-    {
-        return $query->where('quantity', '>', 0);
-    }
-
-    public function category(){
         return $this->belongsTo(Category::class);
     }
 
-    public function tags(){
+    public function tags()
+    {
         return $this->belongsToMany(Tag::class, 'product_tags');
     }
 
@@ -63,24 +49,8 @@ class Product extends Model
             ->orderBy('file_sort', 'asc');
     }
 
-    public function reviews()
+    public function getStatusAttribute(): string
     {
-        return $this->hasMany(Review::class);
+        return $this->attributes['status'] == 0 ? 'Inactive' : 'Active';
     }
-
-    public function approvedReviews()
-    {
-        return $this->hasMany(Review::class)->whereStatus(1);
-    }
-
-    public function ratings()
-    {
-        return $this->hasMany(Rating::class);
-    }
-
-    public function rate()
-    {
-        return $this->ratings->isNotEmpty() ? $this->ratings()->sum('value') / $this->ratings()->count() : 0;
-    }
-
 }
