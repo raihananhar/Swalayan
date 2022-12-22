@@ -1,29 +1,29 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Models;
 
-use App\Models\Product;
-use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Model;
 
-class ShopController extends Controller
+class Tag extends Model
 {
-    public function index($slug = null)
-    {
-        return view('frontend.shop.index', compact('slug'));
-    }
+    use HasFactory, Sluggable;
 
-    public function tag($slug)
-    {
-        return view('frontend.shop.tag', compact('slug'));
-    }
+    Protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    public function search(Request $request)
-    {
-        $data = Product::select('slug', 'name')
-            ->where('name', 'LIKE', '%'.$request->productName. '%')
-            ->take(5)
-            ->get();
+    /**
+     * Return the sluggable configuration array for this model.
+     * 
+     * @return array
+     */
 
-        return response()->json($data);
-    }
+     public function sluggable(): array
+     {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+     }
 }
