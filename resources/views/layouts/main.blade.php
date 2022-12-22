@@ -11,7 +11,10 @@
     <link rel="stylesheet" href="/css/style.css">
 
 
-    <title>Barbatos</title>
+    <title>
+      Barbatos
+    </title>
+    <link rel="shortcut icon" type="image" href="/img/123.png">
   </head>
   <body>
 
