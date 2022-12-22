@@ -10,3 +10,11 @@ body {
     height: 100vh;
     font-family: Verdana, Tahoma, sans-serif;
 }
+
+link {
+    display: none;
+}
+
+nav  {
+    background-color: #236979 !important;
+}
