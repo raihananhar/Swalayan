@@ -39,6 +39,10 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item {{ request()->is('admin/categories') || request()->is('admin/categories/*') ? 'active' : '' }}" href="{{ route('admin.categories.index') }}"> <i class="fa fa-briefcase mr-2"></i> {{ __('Categories') }}</a>
 
+                        {{-- Tags --}}
+
+                        <a class="collapse-item {{ request()->is('admin/tags') || request()->is('admin/tags/*') ? 'active' : '' }}" href="{{ route('admin.tags.index') }}"> <i class="fa fa-tags mr-2"></i> {{ __('Tags') }}</a>
+
                         {{-- Contact Admin --}}
                         <a class="collapse-item {{ request()->is('admin/contact') || request()->is('admin/contact/*') ? 'active' : '' }}" href="{{ route('admin.contact.index') }}"> <i class="fa fa-phone mr-2"></i> {{ __('Contact') }}</a>
 
