@@ -43,6 +43,10 @@
 
                         <a class="collapse-item {{ request()->is('admin/tags') || request()->is('admin/tags/*') ? 'active' : '' }}" href="{{ route('admin.tags.index') }}"> <i class="fa fa-tags mr-2"></i> {{ __('Tags') }}</a>
 
+
+                        {{-- product --}}
+                        <a class="collapse-item {{ request()->is('admin/products') || request()->is('admin/products/*') ? 'active' : '' }}" href="{{ route('admin.products.index') }}"> <i class="fa fa-briefcase mr-2"></i> {{ __('Products') }}</a>
+
                         {{-- Contact Admin --}}
                         <a class="collapse-item {{ request()->is('admin/contact') || request()->is('admin/contact/*') ? 'active' : '' }}" href="{{ route('admin.contact.index') }}"> <i class="fa fa-phone mr-2"></i> {{ __('Contact') }}</a>
 
