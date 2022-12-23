@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -19,11 +20,11 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title> Barbatos</title>
-    <link rel="icon" type="image/x-icon" href="/img/123.png">
+    <link rel="icon" type="image/x-icon" href="/img/logo_title.png">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark shadow-sm " style="background-color: #236979">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm " style="background-color: #c1d6de">
             <div class="container">
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -38,7 +39,7 @@
 
                 <div class="container">
                     
-                    <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="collapse navbar-collapse d-flex justify-content-around" id="navbarNav">
                         <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="/">Home</a>
