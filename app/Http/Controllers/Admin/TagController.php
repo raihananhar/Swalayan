@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Tag;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
-use App\Http\Request\Admin\TagRequest;
+use App\Http\Requests\Admin\TagRequest;
 use Symfony\Component\HttpFoundation\Response;
 
 class TagController extends Controller
@@ -16,10 +15,11 @@ class TagController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        abort_if(Gate::denies('tag_acces'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+    public function index()
+    {   
+        abort_if(Gate::denies('tag_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $tags = Tag::lates()->paginate(5);
+        $tags = Tag::withCount('products')->latest()->paginate(5); 
 
         return view('admin.tags.index', compact('tags'));
     }
@@ -31,10 +31,9 @@ class TagController extends Controller
      */
     public function create()
     {
-        abort_if(Gate::denies('tag_create'),
-        Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('tag_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.tags.create');
+         return view('admin.tags.create');
     }
 
     /**
@@ -45,8 +44,7 @@ class TagController extends Controller
      */
     public function store(TagRequest $request)
     {
-        abort_if(Gate::denies('tag_create'),
-        Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('tag_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         Tag::create($request->validated());
 
         return redirect()->route('admin.tags.index')->with([
@@ -63,8 +61,20 @@ class TagController extends Controller
      */
     public function show(Tag $tag)
     {
-        abort_if(Gate::denies('tag_view'),
-        Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('tag_view'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return view('admin.tags.show', compact('tag'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Tag $tag)
+    {
+        abort_if(Gate::denies('tag_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return view('admin.tags.edit', compact('tag'));
     }
@@ -76,16 +86,16 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TagRequest $request, Tag $tag)
+    public function update(TagRequest $request,Tag $tag)
     {
         abort_if(Gate::denies('tag_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $tag->update($request->validated());
+       $tag->update($request->validated());
 
         return redirect()->route('admin.tags.index')->with([
             'message' => 'success updated !',
             'alert-type' => 'info'
-        ]);
+        ]);    
     }
 
     /**
@@ -103,6 +113,6 @@ class TagController extends Controller
         return redirect()->route('admin.tags.index')->with([
             'message' => 'success deleted !',
             'alert-type' => 'danger',
-        ]);
+            ]);
     }
 }
