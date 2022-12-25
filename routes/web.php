@@ -30,6 +30,7 @@ Route::group(['middleware' => 'isAdmin','prefix' => 'admin', 'as' => 'admin.'], 
     
     Route::post('/products/remove-image', [\App\Http\Controllers\Admin\ProductController::class, 'removeImage'])->name('products.removeImage');
     Route::resource('products', \App\Http\Controllers\Admin\ProductController::class);
+    Route::resource('reviews', \App\Http\Controllers\Admin\ReviewController::class);
 });
 
 Auth::routes();
