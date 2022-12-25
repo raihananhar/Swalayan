@@ -21,7 +21,6 @@
     <link href="{{ asset('backend/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('backend/vendor/bootstrap-fileinput/css/fileinput.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/vendor/summernote/summernote-bs4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('backend/plugins/bootstrap-datepicker3.min.css') }}">
     @stack('style-alt')
 </head>
 
@@ -56,7 +55,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->name }}</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin Barbatos</span>
                                 <img class="img-profile rounded-circle"
                                     src="{{ asset('backend/img/undraw_profile.svg') }}">
                             </a>
@@ -98,7 +97,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Sb-Admin</span>
+                        <span>Barbatos &copy; 2022</span>
                     </div>
                 </div>
             </footer>
