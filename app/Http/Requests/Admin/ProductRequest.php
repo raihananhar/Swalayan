@@ -33,11 +33,10 @@ class ProductRequest extends FormRequest
                     'category_id' => ['required'],
                     'tags.*' => ['required'],
                     'status' => ['required'],
-                    'weight' => ['required', 'numeric'],
                     'description' => ['required', 'max:1000'],
                     'details' => ['required', 'max:10000'],
                     'images' => ['required'],
-                    'images.*' => ['mimes:jpg,jpeg,png,gif', 'max:4000']
+                    'images.*' => ['mimes:jpg,jpeg,png,gif', 'max:3000']
                 ];
             }
             case 'PUT':
@@ -54,7 +53,7 @@ class ProductRequest extends FormRequest
                     'review_able' => ['nullable'],
                     'status' => ['required'],
                     'images' => ['nullable'],
-                    'images.*' => ['mimes:jpg,jpeg,png,gif', 'max:4000']
+                    'images.*' => ['mimes:jpg,jpeg,png,gif', 'max:3000']
                 ];
             }
             default: break;
