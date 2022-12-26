@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -19,43 +18,17 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <title> Barbatos</title>
-    <link rel="icon" type="image/x-icon" href="/img/logo_title.png">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm " style="background-color: #c1d6de">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    {{ config('app.name', 'Laravel') }}
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <a class="navbar-brand" href="/"><img src="/img/logo navbar.png" alt="" width="50" ></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-
-                <div class="container">
-                    
-                    <div class="collapse navbar-collapse d-flex justify-content-around" id="navbarNav">
-                        <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="/shop">Shop</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="/categories">Categories</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="/contact">Contact Us</a>
-                        </li>
-                        </ul>    
-                    </div>
-                </div>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
