@@ -362,17 +362,34 @@
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom ptb-20 gray-bg-8">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <div class="copyright-furniture">
-                                <p>© <a href="">Barbatos</a> 2022 .</p>
-                            </div>
-                        </div>
+
+            
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-3 px-3  border-top" style="background-color: #ebf3f6">
+                    
+                
+                    <div class="col mb-3 ml-5">
+                      <img src="/img/logo_title.png" alt="" width="100px" height="100px">
+                      <p>Barbatos Team.</p>
                     </div>
-                </div>
-            </div>
+                
+                
+                    <div class="col mb-3">
+                        <img src="/img/logo_navbar.png" width="250px" height="120px" alt="">
+                    </div>
+
+                    <div class="col mb-3">
+              
+                    </div>
+                  <div class="col mb-3 mt-3">
+                    <p>About Us</p>
+                    <p>You can Find Us</p>
+                    
+                    <p class="text-muted">© <a href="">Barbatos</a> 2022.</p>
+                  </div>
+                  <div class="col mb-3">
+              
+                  </div>
+              </div>
         </footer>
 
 
