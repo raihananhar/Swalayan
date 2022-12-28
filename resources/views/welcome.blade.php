@@ -33,30 +33,35 @@
 
         <!-- header start -->
             <header>
-                <div class="header-top-furniture wrapper-padding-2 res-header-sm">
+                <div class="header-top-furniture wrapper-padding-2 res-header-sm" style="background-color: #ebf3f6">
                     <div class="container-fluid">
-                        <div class="header-bottom-wrapper">
-                            <div class="logo-2 furniture-logo ptb-30">
+                        <div class="header-bottom-wrapper" >
+                            <div class="logo-2 furniture-logo ptb-25 mt-3">
                                 <a href="/">
                                     <img src="{{ asset('frontend/assets/img/logo/LOGO_NAVBAR.png') }}" alt=""  width="150">
                                 </a>
                             </div>
-                            <div class="menu-style-2 furniture-menu menu-hover">
-                                <nav>
+                            <div class="menu-style-2 furniture-menu menu-hover" >
+                                <nav class="" >
                                     <ul>
-                                        <li>
-                                            <a href="/">home</a>
+                                        <li class="nav-item mx-4">
+                                            <img class="mx-2 mb-2" src="/img/home.png" alt="" width="25" height="25">
+                                            <a class="nav-link" href="/">Home</a>
                                         </li>
-                                        <li>
-                                            <a href="#">shop</a>
+                                        <li class="nav-item mx-4">
+                                            <img class="mx-2 mb-2" src="/img/shop.png" alt="" width="25" height="25">
+                                            <a class="nav-link" href="/shop">Shop</a>
                                         </li>
-                                        <li><a href="#">Categories</a>
+                                        <li class="nav-item mx-4">
+                                            <img class="mx-2 mb-2" src="/img/categories.png" alt="" width="25" height="25">
+                                            <a href="#">Categories</a>
                                             <ul class="single-dropdown">
                                                 <li><a href="blog.html">blog 3 colunm</a></li>
                                             </ul>
                                         </li>
-                                        <li>
-                                            <a href="#">contact</a>
+                                        <li class="nav-item mx-4">
+                                            <img class="mx-2 mb-2" src="/img/contact.png" alt="" width="25" height="25">
+                                            <a class="nav-link " href="/contact">Contact Us</a>
                                         </li>
                                     </ul>
                                 </nav>
