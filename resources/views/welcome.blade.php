@@ -25,6 +25,8 @@
         <script src="{{ asset('frontend/assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
         
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/custom.css') }}">
+        {{-- our css --}}
+        <link rel="stylesheet" href="/css/footer.css">
 
         <!-- CSRF Token -->
 		<meta name="csrf-token" content="{{ csrf_token() }}">
@@ -175,7 +177,7 @@
             <div class="carousel-inner">
                 @foreach(\App\Models\Slide::get() as $key => $slide)
                     <div class="carousel-item {{$key == 0 ? 'active' : '' }}">
-                        <img src="{{ Storage::url('images/slides/'. $slide->cover) }}" class="d-block w-100" alt="{{ $slide->title }}">
+                        <img src="{{ Storage::url('images/slides/'. $slide->cover) }}" class="d-block w-100" alt="{{ $slide->title }}" >
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{ $slide->title }}</h5>
                             <p>{{ $slide->body }}</p>
@@ -205,7 +207,7 @@
                 @foreach(\App\Models\Category::get()->take(4) as $category)
                     <div class="col-lg-3 mb-5">
                         <div class="card category-card">
-                            <img class="img-cover" src="{{ Storage::url('images/categories/'. $category->cover) }}" alt="">
+                            <img class="img-cover" src="{{ Storage::url('images/categories/'. $category->cover) }}" alt="" >
                             <span 
                             class="position-absolute category-name" 
                             style=" position: absolute;left: 50%;top: 50%;transform: translate(-50%,-50%);background-color: white;padding: .8rem 1rem;border: 3px solid #f0f0f0;">
@@ -274,7 +276,7 @@
                                     <a href="#">
                                         @if($product->firstMedia)
                                         <img src="{{ asset('storage/images/products/' . $product->firstMedia->file_name) }}"
-                                            width="60" height="60" alt="{{ $product->name }}">
+                                            width="50px" height="270px" alt="{{ $product->name }}">
                                         @else
                                             <img src="{{ asset('frontend/assets/img/product/fashion-colorful/1.jpg') }}" alt="{{ $product->name }}">
                                         @endif
@@ -293,7 +295,7 @@
                                 </div>
                                 <div class="funiture-product-content text-center">
                                     <h4><a href="">{{ $product->name }}</a></h4>
-                                    <span>${{ $product->price }}</span>
+                                    <span>Rp. {{ $product->price }}</span>
                                 </div>
                             </div>
                         @endforeach
@@ -364,27 +366,37 @@
             </div>
 
             
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-3 px-3  border-top" style="background-color: #ebf3f6">
+            <div class=" py-3 px-3 d-flex flex-column flex-sm-row  border-top" style="background-color: #ebf3f6">
                     
-                
-                    <div class="col mb-3 ml-5">
-                      <img src="/img/logo_title.png" alt="" width="100px" height="100px">
-                      <p>Barbatos Team.</p>
+                    <div class="foot1">
+                        <div class="col mb-3 mt-5">
+                            <img src="/img/logo_title.png" alt="" width="100px" height="100px">
+                            <p>Barbatos Team.</p>
+                          </div>
                     </div>
-                
-                
-                    <div class="col mb-3">
-                        <img src="/img/logo_navbar.png" width="250px" height="120px" alt="">
+                    
+                    <div class="foot2">
+                        <div class="col mb-3 mt-5">
+                            <img src="/img/logo_navbar.png" width="250px" height="120px" alt="">
+                        </div>
                     </div>
-
-                    <div class="col mb-3">
+                                        
+                    <div class="foot3">
+                        <div class="col mb-3 mt-3">
+                          <p>About Us</p>
+                          <p>You can Find Us</p>
+                          <div class="container d-flex" style="margin-left: -20px">
+                              <img class="mx-2 mb-2" src="/img/ig.png" alt="" width="25" height="25">
+                              <img class="mx-2 mb-2" src="/img/facebook.png" alt="" width="25" height="25">
+                              <img class="mx-2 mb-2" src="/img/twitter.png" alt="" width="25" height="25">
+                              <img class="mx-2 mb-2" src="/img/github.png" alt="" width="25" height="25">
+                          </div>
+                          <br>
+                          <p class="text-muted">© <a href="">Barbatos</a> 2022.</p>
+                        </div>
+                    </div>
+                  <div class="col mb-3">
               
-                    </div>
-                  <div class="col mb-3 mt-3">
-                    <p>About Us</p>
-                    <p>You can Find Us</p>
-                    
-                    <p class="text-muted">© <a href="">Barbatos</a> 2022.</p>
                   </div>
                   <div class="col mb-3">
               
