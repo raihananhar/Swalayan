@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>{{ config('app.name', 'Barbatos') }}</title>
+        <title>{{ config('app.name', 'Barbatos') }} |  @yield('title')</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend/assets/img/logo_title.png') }}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend/assets/img/logo/logo_title.png') }}">
 		
 		<!-- all css here -->
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
@@ -22,149 +22,172 @@
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/bundle.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="{{ asset('frontend/assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
+        
+        <link rel="stylesheet" href="{{ asset('frontend/assets/css/custom.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/assets/css/footer.css') }}">
 
         <!-- CSRF Token -->
 		<meta name="csrf-token" content="{{ csrf_token() }}">
+        @livewireStyles
     </head>
     <body>
 
         <!-- header start -->
-        <header>
-            <div class="header-top-furniture wrapper-padding-2 res-header-sm" style="background-color: #ebf3f6">
-                <div class="container-fluid">
-                    <div class="header-bottom-wrapper" >
-                        <div class="logo-2 furniture-logo ptb-25 mt-3">
-                            <a href="/">
-                                <img src="{{ asset('frontend/assets/img/logo/LOGO_NAVBAR.png') }}" alt=""  width="150">
-                            </a>
-                        </div>
-                        <div class="menu-style-2 furniture-menu menu-hover" >
-                            <nav class="" >
-                                <ul>
-                                    <li class="nav-item mx-4">
-                                        <img class="mx-2 mb-2" src="/img/home.png" alt="" width="25" height="25">
-                                        <a class="nav-link" href="/">Home</a>
-                                    </li>
-                                    <li class="nav-item mx-4">
-                                        <img class="mx-2 mb-2" src="/img/shop.png" alt="" width="25" height="25">
-                                        <a class="nav-link" href="/shop">Shop</a>
-                                    </li>
-                                    <li class="nav-item mx-4">
-                                        <img class="mx-2 mb-2" src="/img/categories.png" alt="" width="25" height="25">
-                                        <a href="#">Categories</a>
-                                        <ul class="single-dropdown">
-                                            <li><a href="blog.html">blog 3 colunm</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item mx-4">
-                                        <img class="mx-2 mb-2" src="/img/contact.png" alt="" width="25" height="25">
-                                        <a class="nav-link " href="/contact">Contact Us</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <div class="header-cart">
-                            <a class="icon-cart-furniture" href="">
-                                <i class="ti-shopping-cart"></i>
-                                <span class="shop-count-furniture green">{{ \Cart::getTotalQuantity() }}</span>
-                            </a>
-                                <ul class="cart-dropdown">
-                                        <li class="single-product-cart">
-                                            <div class="cart-img">
-                                                <a href=""><img src="" alt="" style="width:100px"></a>
-                                            </div>
-                                            <div class="cart-title">
-                                                <h5>
-                                                    <a href="">name</a>
-                                                </h5>
-                                                <span>1000 x qty</span>
-                                            </div>
-                                            <div class="cart-delete">
-                                                <a href="" class="delete"><i class="ti-trash"></i></a>
-                                            </div>
-                                        </li>
-                                    <li class="cart-space">
-                                        <div class="cart-sub">
-                                            <h4>Subtotal</h4>
-                                        </div>
-                                        <div class="cart-price">
-                                            <h4>Total</h4>
-                                        </div>
-                                    </li>
-                                    <li class="cart-btn-wrapper">
-                                        <a class="cart-btn btn-hover" href="{{ route('cart.index') }}">view cart</a>
-                                        <a class="cart-btn btn-hover" href="">checkout</a>
-                                    </li>
-                                </ul>
-                                
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="mobile-menu-area d-md-block col-md-12 col-lg-12 col-12 d-lg-none d-xl-none">
-                            <div class="mobile-menu">
-                                <nav id="mobile-menu-active">
-                                    <ul class="menu-overflow">
+            <header>
+                <div class="header-top-furniture wrapper-padding-2 res-header-sm">
+                    <div class="container-fluid">
+                        <div class="header-bottom-wrapper">
+                            <div class="logo-2 furniture-logo ptb-30">
+                                <a href="/">
+                                    <img src="{{ asset('frontend/assets/img/logo/LOGO_NAVBAR.png') }}" alt=""  width="150">
+                                </a>
+                            </div>
+                            <div class="menu-style-2 furniture-menu menu-hover">
+                                <nav>
+                                    <ul>
                                         <li>
-                                            <a href="#">HOME</a>
+                                            <img class="mx-2 mb-2" src="/img/home.png" alt="" width="25" height="25">
+                                            <a href="/">home</a>
                                         </li>
                                         <li>
-                                            <a href="#">shop</a>
+                                            <img class="mx-2 mb-2" src="/img/shop.png" alt="" width="25" height="25">
+                                            <a href="{{ route('shop.index') }}">shop</a>
                                         </li>
-                                        <li><a href="#">BLOG</a>
-                                            <ul>
-                                                <li><a href="#">blog 3 colunm</a></li>
+                                        <li>
+                                            <img class="mx-2 mb-2" src="/img/categories.png" alt="" width="25" height="25">
+                                            <a href="#">Categories</a>
+                                            <ul class="single-dropdown">
+                                                @foreach($categories_menu as $category_menu)
+                                                    <li><a href="{{ route('shop.index', $category_menu->slug) }}">{{ $category_menu->name }}</a></li>
+                                                @endforeach
                                             </ul>
                                         </li>
-                                        <li><a href="#"> Contact  </a></li>
+                                        <li>
+                                            <img class="mx-2 mb-2" src="/img/contact.png" alt="" width="25" height="25">
+                                            <a href="#">contact</a>
+                                        </li>
                                     </ul>
-                                </nav>							
+                                </nav>
+                            </div>
+                            <div class="header-cart">
+                                <a class="icon-cart-furniture" href="{{ route('cart.index') }}">
+                                    <i class="ti-shopping-cart"></i>
+                                    <span class="shop-count-furniture green">{{ \Cart::getTotalQuantity() }}</span>
+                                </a>
+                                @if (!\Cart::isEmpty())
+                                    <ul class="cart-dropdown">
+                                    @foreach (\Cart::getContent() as $item)
+                                        @php
+                                            $product = $item->associatedModel;
+											$image = !empty($product->firstMedia) ? asset('storage/images/products/'. $product->firstMedia->file_name) : asset('frontend/assets/img/cart/3.jpg')
+                                        @endphp
+                                        <li class="single-product-cart">
+                                            <div class="cart-img">
+                                                <a href="{{ route('product.show', $product->slug) }}"><img src="{{ $image }}" alt="{{ $product->name }}" style="width:100px"></a>
+                                            </div>
+                                            <div class="cart-title">
+                                                <h5><a href="{{ route('product.show', $product->slug) }}">{{ $item->name }}</a></h5>
+                                                <span>{{ number_format($item->price) }} x {{ $item->quantity }}</span>
+                                            </div>
+                                            <div class="cart-delete">
+                                                <form id="deleteCart" action="{{ route('cart.destroy', $item->id) }}" method="POST" class="d-none">
+                                                    @csrf
+                                                    @method('delete')
+                                                </form>
+                                                <a href="" onclick="event.preventDefault();document.getElementById('deleteCart').submit();" class="delete"><i class="ti-trash"></i></a>
+                                            </div>
+                                        </li>
+                                     @endforeach
+                                        <li class="cart-space">
+                                            <div class="cart-sub">
+                                                <h4>Subtotal</h4>
+                                            </div>
+                                            <div class="cart-price">
+                                                <h4>{{ number_format(\Cart::getSubTotal()) }}</h4>
+                                            </div>
+                                        </li>
+                                        <li class="cart-btn-wrapper">
+                                            <a class="cart-btn btn-hover" href="{{ route('cart.index') }}">view cart</a>
+                                            <a class="cart-btn btn-hover" href="{{ route('checkout.process') }}">checkout</a>
+                                        </li>
+                                    </ul>
+                                 @endif   
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mobile-menu-area d-md-block col-md-12 col-lg-12 col-12 d-lg-none d-xl-none">
+                                <div class="mobile-menu">
+                                    <nav id="mobile-menu-active">
+                                        <ul class="menu-overflow">
+                                            <li>
+                                                <a href="#">HOME</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('shop.index') }}">shop</a>
+                                            </li>
+                                            <li><a href="#">categories</a>
+                                                <ul>
+                                                @foreach($categories_menu as $category_menu)
+                                                    <li><a href="{{ route('shop.index', $category_menu->slug) }}">{{ $category_menu->name }}</a></li>
+                                                @endforeach
+                                                </ul>
+                                            </li>
+                                            <li><a href="#"> Contact  </a></li>
+                                        </ul>
+                                    </nav>							
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="header-bottom-furniture wrapper-padding-2 border-top-3" style="border-bottom: 1px solid #e0e0e0;">
-                <div class="container-fluid">
-                    <div class="furniture-bottom-wrapper">
-                        <div class="furniture-login">
-                            <ul>
-                                @guest
-                                    <li>Get Access: <a href="{{ route('login') }}">Login</a></li>
-                                    <li><a href="{{ route('register') }}">Register</a></li>
-                                @else
-                                    <li>Hello: <a href="/admin/dashboard">{{ auth()->user()->username }}</a></li>
-                                    <a href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                <div class="header-bottom-furniture wrapper-padding-2 border-top-3" style="border-bottom: 1px solid #e0e0e0;">
+                    <div class="container-fluid">
+                        <div class="furniture-bottom-wrapper">
+                            <div class="furniture-login">
+                                <ul>
+                                    @guest
+                                        <li>Get Access: <a href="{{ route('login') }}">Login</a></li>
+                                        <li><a href="{{ route('register') }}">Register</a></li>
+                                    @else
+                                        <li>Hello: <a href="{{ route('profile.index') }}">{{ auth()->user()->username }}</a></li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                @endguest
-                            </ul>
-                        </div>
-                        <div class="furniture-search">
-                            <form action="" method="GET">
-                                <input placeholder="I am Searching for . . ." type="text" name="q" value="{{ isset($q) ? $q : null }}">
-                                <button disabled>
-                                    <i class="ti-search"></i>
-                                </button>
-                            </form>
-                        </div>
-                        <div class="furniture-wishlist">
-                            <ul>
-                                <li>
-                                    <a href=""><i class="ti-heart"></i> Favorites</a>
-                                </li>
-                            </ul>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    @endguest
+                                </ul>
+                            </div>
+                            <div class="furniture-search">
+                                <form>
+                                    <input placeholder="I am Searching for . . ." type="text" name="q" autocomplete="off" id="search">
+                                    <button disabled>
+                                        <i class="ti-search"></i>
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="furniture-wishlist">
+                                <ul>
+                                    <li>
+                                        <a href="{{ route('favorite.index') }}"><i class="ti-heart"></i> Favorites</a>
+                                    </li>
+                                    @auth
+                                    <li>
+                                        <a href="{{ route('orders.index') }}"><i class="ti-money"></i> Orders</a>
+                                    </li>
+                                    @endauth
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </header>
+            </header>
         <!-- header end -->
 
         @yield('content')
@@ -177,7 +200,7 @@
                         <div class="footer-widget mb-30">
                             <a href="#"><img src="{{ asset('frontend/assets/img/logo/2.png') }}" alt=""></a>
                             <div class="footer-about-2">
-                                <p>There are many variations of passages of Lorem Ipsum <br>the majority have suffered alteration in some form, by <br> injected humour</p>
+                                <p>Ada yang bisa kami bantu ? <br> Hubungi kami pada contact disamping. </p>
                             </div>
                         </div>
                         <div class="footer-widget mb-30">
@@ -230,37 +253,49 @@
             </div>
 
             
-            <div class="container-fluid px-5" style="background-color: #ebf3f6">
-                <div class="row justify-content-center py-4">
-                    <div class="col-lg-7 ">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <img src="/img/logo_title.png" alt="" width="100px" >
-                                <p>Barbatos Team.</p>
-                            </div>
-                            <div class="col">
-                                <img src="/img/logo_navbar.png" width="250px" alt="">
-                            </div>
+            <div class=" py-3 px-3 d-flex flex-column flex-sm-row  border-top" style="background-color: #ebf3f6">
+                    
+                    <div class="foot1">
+                        <div class="col mb-3 mt-5">
+                            <img src="/img/logo_title.png" alt="" width="100px" height="100px">
+                            <p>Barbatos Team.</p>
+                          </div>
+                    </div>
+                    
+                    <div class="foot2">
+                        <div class="col mb-3 mt-5">
+                            <img src="/img/logo_navbar.png" width="250px" height="120px" alt="">
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <p>About Us</p>
-                        <p>You can Find Us</p>
-                        <div class="container d-flex" style="margin-left: -20px">
-                            <img class="mx-2 mb-2" src="/img/ig.png" alt="" width="25" height="25">
-                            <img class="mx-2 mb-2" src="/img/facebook.png" alt="" width="25" height="25">
-                            <img class="mx-2 mb-2" src="/img/twitter.png" alt="" width="25" height="25">
-                            <img class="mx-2 mb-2" src="/img/github.png" alt="" width="25" height="25">
+                                        
+                    <div class="foot3">
+                        <div class="col mb-3 mt-3">
+                          <p>About Us</p>
+                          <p>You can Find Us</p>
+                          <div class="container d-flex" style="margin-left: -20px">
+                              <img class="mx-2 mb-2" src="/img/ig.png" alt="" width="25" height="25">
+                              <img class="mx-2 mb-2" src="/img/facebook.png" alt="" width="25" height="25">
+                              <img class="mx-2 mb-2" src="/img/twitter.png" alt="" width="25" height="25">
+                              <img class="mx-2 mb-2" src="/img/github.png" alt="" width="25" height="25">
+                          </div>
+                          <br>
+                          <p class="text-muted">© <a href="">Barbatos</a> 2022.</p>
                         </div>
-                        <br>
-                        <p class="text-muted">© <a href="">Barbatos</a> 2022.</p>
-                      </div>                
-                </div>
-            </div>
+                    </div>
+                  <div class="col mb-3">
+              
+                  </div>
+                  <div class="col mb-3">
+              
+                  </div>
+              </div>
         </footer>
-        <!-- footer end -->
+
+
+     
        
-		
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+        @livewireScripts
 		<!-- all js here -->
         <script src="{{ asset('frontend/assets/js/vendor/jquery-1.12.0.min.js') }}"></script>
         <script src="{{ asset('frontend/assets/js/popper.js') }}"></script>
@@ -276,5 +311,42 @@
         <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
         <script src="{{ asset('frontend/assets/js/app.js') }}"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                let bloodhound = new Bloodhound({
+                    datumTokenizer: Bloodhound.tokenizers.whitespace,
+                    queryTokenizer: Bloodhound.tokenizers.whitespace,
+                    remote: {
+                        url: '{{url("search")}}?productName=%QUERY%', //'/user/find?q=%QUERY%',
+                        wildcard: '%QUERY%'
+                    },
+                });
+
+                $('#search').typeahead({
+                    hint: true,
+                    highlight: true,
+                    minLength: 1
+                }, {
+                    name: 'products',
+                    source: bloodhound,
+                    limit: 10,
+                    display: function(data) {
+                        return data.name  //Input value to be set when you select a suggestion.
+                    },
+                    templates: {
+                        empty: [
+                            '<div class="list-group-item">There are no matching search results</div>'
+                        ],
+                        header: [
+                            '<div class="list-group search-results-dropdown">'
+                        ],
+                        suggestion: function(data) {
+                            return '<div style="font-weight:normal; width:100%" class="list-group-item"><a href="{{url('product')}}/'+data.slug+'">' + data.name + '</a></div></div>'
+                        }
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
