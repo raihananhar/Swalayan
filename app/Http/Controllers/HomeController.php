@@ -11,7 +11,6 @@ use phpDocumentor\Reflection\Types\Null_;
 class HomeController extends Controller
 {
 
-
     /**
      * Show the application dashboard.
      *
@@ -24,6 +23,5 @@ class HomeController extends Controller
         $slides = Slide::latest()->get();
         
         return view('frontend.homepage', compact('products', 'categories','slides'));
-
     }
 }
