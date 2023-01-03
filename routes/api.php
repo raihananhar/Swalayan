@@ -39,7 +39,3 @@ Route::middleware('client')->group(function () {
     Route::get('product', [\App\Http\Controllers\API\ProductController::class, 'index']);
     Route::get('product/{slug}', [\App\Http\Controllers\API\ProductController::class, 'show']);
 });
-
-
-
-
