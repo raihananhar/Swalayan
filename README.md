@@ -7,11 +7,16 @@
 ## Run Locally
 
 Nama Kelompok : Barbatos
-Reza Marchyana - 203040079 - Leader - Frontend
-Agung Septiana - 203040102 - Backend
-Yudha Permana - 203040101 - Backend
-Ray Gineung Pratidina Zunaidi - 203040099 - Frontend
-Raihan Anhar - 203040113 - Frontend
+
+Reza Marchyana - 203040079 - Leader - Frontend Developer
+
+Agung Septiana - 203040102 - Backend Developer
+
+Yudha Permana - 203040101 - Backend Developer
+
+Ray Gineung Pratidina Zunaidi - 203040099 - Frontend Developer
+
+Raihan Anhar - 203040113 - Frontend Developer
 
 
 Clone the project
