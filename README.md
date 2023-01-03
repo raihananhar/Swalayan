@@ -4,7 +4,7 @@
 
 ![preview img](/preview.png)
 
-## Run Locally
+## Tentang Kelompok
 
 Nama Kelompok : Barbatos
 
@@ -17,6 +17,17 @@ Yudha Permana - 203040101 - Backend Developer
 Ray Gineung Pratidina Zunaidi - 203040099 - Frontend Developer
 
 Raihan Anhar - 203040113 - Frontend Developer
+
+
+Tema : Market Place 
+
+Nama Aplikasi : Swalayan
+
+Tentang Aplikasi : Aplikasi kami yaitu "Swalayan" merupakan aplikasi yang bergerak dalam bidang Market Place atau jual / beli barang. aplikasi ini memberikan fitur yang nantinya user bisa melakukan penjualan dan juga pembelian barang, ada pula admin yang mengatur user - user yang sudah terdaftar. nantinya user bisa memasukan barang ke keranjang dan langsung membelinya, lalu user juga bisa melakukan metode pembayaran secara non - tunai.
+
+
+## Run Locally
+
 
 
 Clone the project
