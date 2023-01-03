@@ -16,9 +16,7 @@ class TagController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        abort_if(Gate::denies('tag_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
+    {
         $tags = Tag::withCount('products')->latest()->paginate(5); 
 
         return view('admin.tags.index', compact('tags'));
@@ -31,7 +29,6 @@ class TagController extends Controller
      */
     public function create()
     {
-        abort_if(Gate::denies('tag_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
          return view('admin.tags.create');
     }
@@ -44,7 +41,6 @@ class TagController extends Controller
      */
     public function store(TagRequest $request)
     {
-        abort_if(Gate::denies('tag_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         Tag::create($request->validated());
 
         return redirect()->route('admin.tags.index')->with([

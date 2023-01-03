@@ -19,9 +19,6 @@ class AdminMiddleware
         if (!auth()->check()) {
             return redirect('/');
         }
-        if (auth()->user()->roles()->where('title', 'user')->count() > 0) {
-            return redirect('/');
-        }
 
         return $next($request);
     }
