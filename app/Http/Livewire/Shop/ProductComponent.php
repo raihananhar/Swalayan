@@ -36,6 +36,7 @@ class ProductComponent extends Component
                 $sortType = 'asc';
         }
 
+
         $products = Product::with('firstMedia');
 
         if ($this->slug == '') {

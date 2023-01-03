@@ -19,7 +19,9 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        abort_if(Gate::denies('category_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $categories = Category::with('parent')->withCount('products')->latest()->paginate(5); 
 
         return view('admin.categories.index', compact('categories'));
@@ -32,6 +34,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
+        abort_if(Gate::denies('category_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $parent_categories = Category::whereNull('category_id')->get(['id', 'name']);
 
@@ -46,10 +49,11 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request)
     {
+        abort_if(Gate::denies('category_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $image = NULL;
         if ($request->hasFile('cover')) {
-            $image = $this->uploadImage($request->name, $request->cover, 'categories', 500, NULL);
+            $image = $this->uploadImage($request->name, $request->cover, 'categories', 268, 268);
         }
 
         Category::create([
@@ -108,7 +112,7 @@ class CategoryController extends Controller
             if ($category->cover != null && File::exists('storage/images/categories/'. $category->cover)) {
                 unlink('storage/images/categories/'. $category->cover);
             }
-            $image = $this->uploadImage($request->name, $request->cover, 'categories', 500, NULL);
+            $image = $this->uploadImage($request->name, $request->cover, 'categories', 268, 268);
         }
 
         $category->update([

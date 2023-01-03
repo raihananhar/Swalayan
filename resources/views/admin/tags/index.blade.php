@@ -8,13 +8,14 @@
                     {{ __('Tags') }}
                 </h6>
                 <div class="ml-auto">
-                    
+                    @can('tag_create')
                     <a href="{{ route('admin.tags.create') }}" class="btn btn-primary">
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
                         <span class="text">{{ __('New tag') }}</span>
                     </a>
+                    @endcan
                 </div>
             </div>
             <div class="table-responsive">
@@ -37,7 +38,6 @@
                             </td>
                             <td>{{ $tag->products_count }}</td>
                             <td>
-                                @can('tag_create')
                                 <div class="btn-group btn-group-sm">
                                     <a href="{{ route('admin.tags.edit', $tag) }}" class="btn btn-sm btn-primary">
                                         <i class="fa fa-edit"></i>
@@ -49,7 +49,6 @@
                                     <button class="btn btn-sm btn-danger" type="submit"><i class="fa fa-trash"></i></button>
                                 </form>
                                 </div>
-                                @endcan
                             </td>
                         </tr>
                     @empty

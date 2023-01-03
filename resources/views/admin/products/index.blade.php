@@ -8,12 +8,14 @@
                     {{ __('Products') }}
                 </h6>
                 <div class="ml-auto">
+                    @can('product_create')
                     <a href="{{ route('admin.products.create') }}" class="btn btn-primary">
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
                         <span class="text">{{ __('New product') }}</span>
                     </a>
+                    @endcan
                 </div>
             </div>
             <div class="table-responsive">
@@ -25,6 +27,7 @@
                         <th>Name</th>
                         <th>Quantity</th>
                         <th>Price</th>
+                        <th>Weight</th>
                         <th>Tags</th>
                         <th>Category</th>
                         <th>Status</th>
@@ -45,7 +48,8 @@
                             </td>
                             <td><a href="{{ route('admin.products.show', $product->id) }}">{{ $product->name }}</a></td>
                             <td>{{ $product->quantity }}</td>
-                            <td>SR {{ $product->price }}</td>
+                            <td>Rp.{{ number_format($product->price) }}</td>
+                            <td>{{ $product->weight }} (gram)</td>
                             <td>
                                 <span class="badge badge-info">{{ $product->tags->pluck('name')->join(', ') }}</span>
                             </td>
@@ -67,13 +71,13 @@
                         </tr>
                     @empty
                         <tr>
-                            <td class="text-center" colspan="9">No products found.</td>
+                            <td class="text-center" colspan="12">No products found.</td>
                         </tr>
                     @endforelse
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="9">
+                            <td colspan="12">
                                 <div class="float-right">
                                     {!! $products->appends(request()->all())->links() !!}
                                 </div>

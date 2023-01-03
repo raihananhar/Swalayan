@@ -23,9 +23,25 @@ class Product extends Model
     {
         return [
             'slug' => [
-                'source' => 'name'
+                'source' => 'name',
+                'onUpdate' => true
             ]
         ];
+    }
+
+    public function getStatusAttribute(): string
+    {
+        return $this->attributes['status'] == 0 ? 'Inactive' : 'Active';
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->whereStatus(true);
+    }
+
+    public function scopeHasQuantity($query)
+    {
+        return $query->where('quantity', '>', 0);
     }
 
     public function category(){
@@ -47,8 +63,24 @@ class Product extends Model
             ->orderBy('file_sort', 'asc');
     }
 
-    public function getStatusAttribute(): string
+    public function reviews()
     {
-        return $this->attributes['status'] == 0 ? 'Inactive' : 'Active';
+        return $this->hasMany(Review::class);
     }
+
+    public function approvedReviews()
+    {
+        return $this->hasMany(Review::class)->whereStatus(1);
+    }
+
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class);
+    }
+
+    public function rate()
+    {
+        return $this->ratings->isNotEmpty() ? $this->ratings()->sum('value') / $this->ratings()->count() : 0;
+    }
+
 }
