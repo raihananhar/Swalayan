@@ -15,11 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('homepage');
 
-Route::group(['middleware' => 'isAdmin','prefix' => 'admin', 'as' => 'admin.'], function() {
+Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard.index');
     Route::resource('permissions', \App\Http\Controllers\Admin\PermissionController::class);
     Route::resource('roles', \App\Http\Controllers\Admin\RoleController::class);
@@ -35,8 +33,7 @@ Route::group(['middleware' => 'isAdmin','prefix' => 'admin', 'as' => 'admin.'], 
     Route::get('slides/{slideID}/down', [\App\Http\Controllers\Admin\SlideController::class, 'moveDown']);
 });
 
-Auth::routes();
+Route::resource('cart', \App\Http\Controllers\CartController::class)->only(['index', 'store', 'update', 'destroy']);
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('homepage');
 
-Route::get('/home', function() {
-    return view('home');
-})->name('home');
+Auth::routes();

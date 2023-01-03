@@ -97,7 +97,7 @@
                                             </div>
                                         </li>
                                         <li class="cart-btn-wrapper">
-                                            <a class="cart-btn btn-hover" href="">view cart</a>
+                                            <a class="cart-btn btn-hover" href="{{ route('cart.index') }}">view cart</a>
                                             <a class="cart-btn btn-hover" href="">checkout</a>
                                         </li>
                                     </ul>
