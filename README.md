@@ -1,4 +1,4 @@
-# Laravel 8 - Ecommerce application
+# Laravel 8 - Barbatos Swalayan
 
 ## Screenshots
 

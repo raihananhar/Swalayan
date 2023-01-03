@@ -137,7 +137,7 @@
                                         <li>Get Access: <a href="{{ route('login') }}">Login</a></li>
                                         <li><a href="{{ route('register') }}">Register</a></li>
                                     @else
-                                        <li>Hello: <a href="">username</a></li>
+                                        <li>Hello: <a href="/admin/dashboard">{{ auth()->user()->username }}</a></li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
