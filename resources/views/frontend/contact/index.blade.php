@@ -55,10 +55,10 @@
         <div class="card-group">
           <div class="card category-card mt-5 mx-5">
             <div class="card" style="width: 18rem;">
-              <img src="..." class="card-img-top" alt="..." height="230px">
+              <img src="/img/RaihanAnhar.jpg" class="card-img-top" alt="..." height="230px">
               <div class="card-body">
                 <h5 class="card-title">Raihan Anhar</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Halo saya adalah seseorang yang akan menjadi anak muda terkaya di dunia</p>
               </div>
               <div class="card-body">
                 <a href="https://instagram.com/raihan.anr?igshid=YmMyMTA2M2Y=" class="card-link">
