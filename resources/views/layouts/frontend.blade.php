@@ -28,6 +28,8 @@
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/custom.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/footer.css') }}">
 
+        <link rel="stylesheet" href="css/footer.css">
+
         <!-- CSRF Token -->
 		<meta name="csrf-token" content="{{ csrf_token() }}">
         @livewireStyles
@@ -66,7 +68,7 @@
                                         </li>
                                         <li>
                                             <img class="mx-2 mb-2" src="/img/contact.png" alt="" width="25" height="25">
-                                            <a href="#">contact</a>
+                                            <a href="/frontend/contact">contact</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -122,7 +124,7 @@
                                     <nav id="mobile-menu-active">
                                         <ul class="menu-overflow">
                                             <li>
-                                                <a href="#">HOME</a>
+                                                <a href="/">HOME</a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('shop.index') }}">shop</a>
@@ -134,7 +136,7 @@
                                                 @endforeach
                                                 </ul>
                                             </li>
-                                            <li><a href="#"> Contact  </a></li>
+                                            <li><a href="/frontend/contact"> Contact  </a></li>
                                         </ul>
                                     </nav>							
                                 </div>
@@ -270,13 +272,14 @@
                                         
                     <div class="foot3">
                         <div class="col mb-3 mt-3">
-                          <p>About Us</p>
+                          <a href="/frontend/contact"><p>About Us</p></a>
                           <p>You can Find Us</p>
                           <div class="container d-flex" style="margin-left: -20px">
                               <img class="mx-2 mb-2" src="/img/ig.png" alt="" width="25" height="25">
                               <img class="mx-2 mb-2" src="/img/facebook.png" alt="" width="25" height="25">
                               <img class="mx-2 mb-2" src="/img/twitter.png" alt="" width="25" height="25">
-                              <img class="mx-2 mb-2" src="/img/github.png" alt="" width="25" height="25">
+                              <a href="https://github.com/RezaMarchyana203040079/barbatos_project">
+                                <img class="mx-2 mb-2" src="/img/github.png" alt="" width="25" height="25"></a>
                           </div>
                           <br>
                           <p class="text-muted">© <a href="">Barbatos</a> 2022.</p>

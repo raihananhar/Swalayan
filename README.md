@@ -6,6 +6,14 @@
 
 ## Run Locally
 
+Nama Kelompok : Barbatos
+Reza Marchyana - 203040079 - Leader - Frontend
+Agung Septiana - 203040102 - Backend
+Yudha Permana - 203040101 - Backend
+Ray Gineung Pratidina Zunaidi - 203040099 - Frontend
+Raihan Anhar - 203040113 - Frontend
+
+
 Clone the project
 
 ```bash
@@ -32,9 +40,12 @@ Go to the project directory
     php artisan artisan migrate:fresh --seed
 ```
 
+
+tambahkan folder images yang didalamnya ada folder images, products, categories, slides di folder storage -> app -> public
 ```bash
     php artisan storage:link
 ```
+
 
 #### Login
 
