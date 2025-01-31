@@ -4,21 +4,6 @@
 
 ![preview img](/preview.png)
 
-## Tentang Kelompok
-
-Nama Kelompok : Barbatos
-
-Reza Marchyana - 203040079 - Leader - Frontend Developer
-
-Agung Septiana - 203040102 - Backend Developer
-
-Yudha Permana - 203040101 - Backend Developer
-
-Ray Gineung Pratidina Zunaidi - 203040099 - Frontend Developer
-
-Raihan Anhar - 203040113 - Frontend Developer
-
-
 Tema : Market Place 
 
 Nama Aplikasi : Swalayan
